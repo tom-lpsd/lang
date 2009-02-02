@@ -1,0 +1,5 @@
+require 'rake/clean'
+
+rule /^[^.]*$/ => '.c' do |t|
+  sh "gcc -o #{t.name} `perl -MExtUtils::Embed -e 'ccopts;ldopts'` #{t.prerequisites}"
+end

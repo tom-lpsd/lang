@@ -1,0 +1,16 @@
+[% INCLUDE header
+   title = 'Template Toolkit CGI Test'
+%]
+
+<a href="mailto:[% email %]">Email [% me.name %]</a>
+
+<p>This is version [% version %]</p>
+
+<h3>Projects</h3>
+<ul>
+[% FOREACH project = worklist(me.id) %]
+   <li> <a href="[% project.url %]">[% project.name %]</a>
+[% END %]
+</ul>
+
+[% INCLUDE footer %]

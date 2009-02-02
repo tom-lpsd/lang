@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+  <head>
+    <title><TMPL_VAR NAME=PAGENAME></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta http-equiv="Content-Style-Type" content="text/css"/>
+    <style>
+      body {
+          background-color : #D2DCCC;
+	  font-size : normal;
+      }
+      a {
+          text-decoration : none;
+      }
+      p {
+          margin : 1px;
+          padding : 0px;
+      }
+      #dai {
+	  margin : 0px;
+	  padding : 0px;
+      }
+      #honbun {
+	  margin : 0px;
+	  padding : 0px;
+      }
+      .article {
+          border-style : ridge;
+          padding : 7px;
+      }
+      dt {
+          background-color : #60CC60;
+          width : 8em;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h2><TMPL_VAR NAME=PAGENAME></h2>
+
+    <TMPL_LOOP NAME=HEAD>
+      <p><a href="#<TMPL_VAR NAME=INDEX>">・<TMPL_VAR NAME=INDEX></a></p>
+    </TMPL_LOOP>
+
+    <TMPL_LOOP NAME=ARTICLE>
+    <div class="article">
+      <h3 id="dai"><a href="<TMPL_VAR NAME=TITLE>"  id="<TMPL_VAR NAME=TITLE>">
+	    ●<TMPL_VAR NAME=TITLE></a></h3>
+      <dl id="honbun">
+	<TMPL_LOOP NAME=DLIST>
+	<dt> <TMPL_VAR NAME=DTITLE> </dt><dd> <TMPL_VAR NAME=DBODY> </dd>
+	</TMPL_LOOP>
+      </dl>
+    </div>
+    </TMPL_LOOP>
+
+  </div>
+
+  <!-- メイン終わり -->
+</div>
+
+</body>
+</html>

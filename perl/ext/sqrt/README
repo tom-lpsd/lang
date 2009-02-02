@@ -1,0 +1,10 @@
+xsを使ったperl拡張の例．
+h2xs -x -n MySqrt sqrt.h
+とするとMySqrtディレクトリができるので
+その中にsqrt.h sqrt.cをコピーする．
+そのディレクトリにできたMakefile.PL
+を編集して，OBJECTのところにsqrt.o MySqrt.o
+を書く．
+perl Makefile.PL
+make
+で完成．

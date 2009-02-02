@@ -1,0 +1,9 @@
+swigを使うためにhello.iを作成してある．
+$ swig -perl hello.i
+$ perl Makefile.PL
+$ make
+で必要なファイルができあがるはず．
+環境変数PERL5LIBに./blib/arch/auto/Helloを追加して
+perl -Iblib -MHello -e 'Hello::hello("foo");'
+とかで動くはず．
+

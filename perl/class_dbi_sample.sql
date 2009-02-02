@@ -1,0 +1,2 @@
+CREATE TABLE cbsample (id INTEGER PRIMARY KEY, name TEXT);
+

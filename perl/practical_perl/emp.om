@@ -1,0 +1,10 @@
+class Employee {
+    int id;
+    string name;
+    int dept_id;
+};
+class Department {
+    int id;
+    string name;
+};
+

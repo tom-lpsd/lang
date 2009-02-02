@@ -1,0 +1,9 @@
+swigを使うためにsquare.iを作成してある．
+$ swig -perl square.i
+$ perl Makefile.PL
+$ make
+で必要なファイルができあがるはず．
+環境変数PERL5LIBに./blib/arch/auto/MyExtを追加して
+perl -Iblib -MMyExt -e 'print MyExt::square(4);'
+とかで動くはず．
+
