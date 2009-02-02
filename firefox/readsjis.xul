@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="application/x-javascript"><![CDATA[
+  netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+  var file = Components
+             .classes['@mozilla.org/file/local;1']
+             .createInstance(Components.interfaces.nsILocalFile);
+  file.initWithPath('/Users/tom/src/firefox/sjis.txt');
+  var charset = 'Shift_JIS';
+  var buffer = 1024;
+
+  var fileStream = Components
+                   .classes['@mozilla.org/network/file-input-stream;1']
+                   .createInstance(Components.interfaces.nsIFileInputStream);
+  fileStream.init(file, 1, 0, false);
+  
+  var converterStream = Components
+                        .classes['@mozilla.org/intl/converter-input-stream;1']
+                        .createInstance(Components.interfaces.nsIConverterInputStream);
+  converterStream.init(fileStream, charset, buffer,
+                       converterStream.DEFAULT_REPLACEMENT_CHARACTER);
+
+  var out = {};
+  converterStream.readString(fileStream.available(), out);
+  
+  var fileContents = out.value;
+
+  converterStream.close();
+  fileStream.close();
+
+  alert(fileContents);
+]]></script>
+</page>

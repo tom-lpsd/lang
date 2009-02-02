@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>本の一覧</title>
+    <style type="text/css">
+      <!--
+      h1 { background-color: rgb(200, 200, 200);
+           border-bottom: 2px solid rgb(100, 100, 100); }
+      h2 { background-color: rgb(200, 200, 255); }
+      dt { font-weight: bold; }
+      .subitem { padding: 0 2em; }
+      //-->
+    </style>
+    </head>
+  <body>
+    <h1>本の一覧</h1>
+    {% for book in object_list %}
+    <div class="list">
+      <h2>{{ book.title }}</h2>
+      <dl class="subitem">
+	<dt>著者</dt><dd>{{ book.author }}</dd>
+	<dt>価格</dt><dd>{{ book.price }}</dd>
+      </dl>
+    </div>
+    {% endfor %}
+    {% if has_previous %}
+    <a href="?page={{ previous }}">前のページ</a>&nbsp;&nbsp;&nbsp;
+    {% endif %}
+    {% if has_next %}
+    <a href="?page={{ next }}">次のページ</a>
+    {% endif %}
+  </body>
+</html>

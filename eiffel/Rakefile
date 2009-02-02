@@ -1,0 +1,12 @@
+require 'rake/clean'
+
+bindir = '../bin'
+EC = 'compile'
+SRC = FileList['**/*.e']
+APPS = SRC.ext
+
+APPS.each do |app|
+  file app => ["#{app}.e"] do |t|
+    sh "#{EC}  -o #{bindir}/#{t.name} -clean #{t.name}"
+  end
+end

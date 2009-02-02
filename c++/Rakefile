@@ -1,0 +1,79 @@
+require 'rake/clean'
+require 'rake/loaders/makefile'
+
+CLEAN.include('**/*.o','.deps/*.mf')
+CLOBBER.include('**/*.a')
+
+AR = 'ar ruc'
+SED = 'sed'
+GREP = 'grep -q -E'
+
+LIBDIR = 'lib'
+SRCDIR = 'src'
+BINDIR = '../bin'
+INCDIR =  %w{/sw/include /usr/local/include ./include}
+
+SRC = FileList['**/*.cpp']
+APPS = SRC.ext
+
+CXX = 'g++'
+CPPFLAGS = INCDIR.map { |dir| "-I#{dir} " }
+CXXFLAGS = '-O3 -Wall'
+
+rule /\.o$/ => ['.cpp'] do |t|
+  sh "#{CXX} -c -o #{t.name} #{CPPFLAGS} #{CXXFLAGS} #{t.source}"
+end
+
+SRC.each do |src|
+  deps = ".deps/" + src.ext('.mf').gsub(/\//,'.')
+  file deps => [src] do
+    sh "#{CXX} -MM #{CPPFLAGS} -MT #{src.ext('.o')} #{src} > #{deps}"
+  end
+  import deps
+end
+
+APPS.each do |fname|
+  file fname => ["#{fname}.o"] do |f|
+    begin
+      ldlibs = "-L#{LIBDIR} "
+      deps = ".deps/" + f.name.ext('.mf').gsub(/\//,'.')
+      sh %{#{GREP} 'main' #{f.name}.cpp} do |ok,res| 
+        raise if !ok 
+      end
+      sh %{#{GREP} 'include/loki' #{deps}} do |ok,res|
+        if ok
+          Rake::FileTask["#{LIBDIR}/libloki.a"].invoke
+          ldlibs += "-lloki"
+        end
+      end
+      sh %{#{GREP} 'boost' #{deps}} do |ok,res|
+        if ok
+          libdir = ""
+          open(deps,"r") do |src_file|
+            src_file.each do |line|
+              line.sub(/\\/,'').split.each do |header|
+                if (header =~ /^\s*(\/.*?\/)boost\/([^\/]*?)\.hpp.*/)
+                  libbasename = $2
+                  libdir = $1.sub(/include/,'lib')
+                  libfullname = "#{libdir}libboost_#{libbasename}.a"
+                  ldlibs += "-lboost_#{libbasename} " if FileTest.exist?(libfullname);
+                end
+              end
+            end
+          end
+          ldlibs += "-L#{libdir}" if libdir != ''
+        end
+      end
+      biname = File.basename(fname)
+      sh "#{CXX} -o #{BINDIR}/#{biname} #{CPPFLAGS} #{fname}.o #{ldlibs}"
+    rescue
+      puts "it doesn't contains main function."
+    end
+  end
+end
+
+LOKI = FileList["#{SRCDIR}/loki/*.cpp"].ext('.o')
+
+file "#{LIBDIR}/libloki.a" => LOKI do |t|
+  sh "#{AR} #{t.name} #{t.prerequisites}"
+end

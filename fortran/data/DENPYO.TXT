@@ -1,0 +1,9 @@
+ 10 apple                   100    10
+ 10 apple                   105     3
+ 10 orange                   80     5
+ 20 apple                    99     8
+ 20 orange                   84     7
+ 30 apple                   120     5
+ 30 orange                   99     6
+ 40 apple                   100    12
+ 40 orange                   90    12

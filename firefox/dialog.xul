@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/"?>
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        title="My Dialog"
+        buttons="accept,cancel"
+        ondialogaccept="saveValues();window.close();"
+        ondialogcancel="window.close();">
+<script type="application/javascript"><![CDATA[
+  netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+]]></script>
+  <checkbox label="My Option" />
+</dialog>
+

@@ -1,0 +1,2 @@
+content	  sessionstore                           content/
+overlay   chrome://browser/content/browser.xul   chrome://sessionstore/content/overlay.xul

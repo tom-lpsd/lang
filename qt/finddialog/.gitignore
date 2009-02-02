@@ -1,0 +1,5 @@
+Makefile
+*.o
+*.pro
+moc_*
+finddialog

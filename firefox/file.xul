@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="application/x-javascript"><![CDATA[
+  netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+  var file = Components
+             .classes['@mozilla.org/file/local;1']
+             .createInstance(Components.interfaces.nsILocalFile);
+  file.initWithPath('/Users/tom/tmp.txt');
+  if (file.exists()) file.remove(false);
+  file.create(file.NORMAL_FILE_TYPE, 0666);
+  var parent = file.parent;
+  parent.append('tmp');
+  var children = parent.directoryEntries;
+  var child;
+  var list = [];
+  while (children.hasMoreElements()) {
+    child = children.getNext().QueryInterface(Components.interfaces.nsILocalFile);
+    list.push(child.leafName + (child.isDirectory() ? '[DIR]' : ''));
+  }
+  alert(list.join('\n'));
+]]></script>
+</page>

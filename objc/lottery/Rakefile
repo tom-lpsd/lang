@@ -1,0 +1,3 @@
+file 'lottery' => ['lottery.m', 'LotteryEntry.m', 'LotteryEntry.h'] do
+  sh "gcc -framework Foundation -o lottery lottery.m LotteryEntry.m"
+end

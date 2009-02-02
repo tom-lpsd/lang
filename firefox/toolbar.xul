@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet href="chrome://global/skin"?>
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <toolbar>
+    <toolbarbutton label="チェックボックス型" type="checkbox" image="firefox.ico" />
+    <toolbarbutton label="メニュー型" type="menu" 
+		   popup="button-popup" image="firefox.ico" />
+    <toolbarbutton label="メニューボタン型" type="menu-button" 
+		   popup="button-popup" image="firefox.ico" />
+    <menupopup id="button-popup">
+      <menuitem label="項目1" />
+      <menuitem label="項目2" />
+    </menupopup>
+  </toolbar>
+</window>

@@ -1,0 +1,9 @@
+;;-*- coding: utf-8; mode: kahua -*-
+;; schedule version
+;;
+;;  See COPYING for terms and conditions of using this software
+;;
+;; $Id:$
+
+;;---------------------------------------------------------
+(define *schedule-version* "0.0.0")

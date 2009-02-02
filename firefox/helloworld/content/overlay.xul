@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<overlay id="helloworldOverlay"
+	 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <commandset id="mainCommandSet">
+    <command id="helloworldCommand"
+	     oncommand="window.openDialog(
+			'chrome://helloworld/content/clock.xul',
+			'Clock',
+			'chrome,centerscreen,modal');" />
+  </commandset>
+  <toolbarpalette id="BrowserToolbarPalette">
+    <toolbarbutton id="helloworldButton"
+		   label="Hello, World!"
+		   class="toolbarbutton-1"
+		   command="helloworldCommand" />
+  </toolbarpalette>
+  <menupopup id="menu_ToolsPopup">
+    <menuitem id="helloworldMenuitem"
+	      label="Hello, World!"
+	      insertbefore="sanitizeSeparator"
+	      command="helloworldCommand" />
+  </menupopup>
+</overlay>

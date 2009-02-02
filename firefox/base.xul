@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/"?>
+<?xul-overlay href="overlayDocument.xul"?>
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <hbox id="box1">
+    <label id="label1" value="テキストラベル" />
+  </hbox>
+  <hbox id="box2">
+    <label id="label2" value="テキストラベル" />
+  </hbox>
+</window>

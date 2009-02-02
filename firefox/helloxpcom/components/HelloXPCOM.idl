@@ -1,0 +1,7 @@
+#include "nsISupports.idl"
+
+[scriptable, uuid(3DFD87E1-6F10-48C4-97B4-197F4F940637)]
+interface nsIHelloXPCOM : nsISupports
+{
+  string hello();
+};

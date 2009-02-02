@@ -1,0 +1,6 @@
+#helloworldButton { 
+  list-style-image: url(chrome://helloworld/skin/icon.png);
+}
+toolbar[iconsize="small"] #helloworldButton { 
+  list-style-image: url(chrome://helloworld/skin/icon-small.png);
+}

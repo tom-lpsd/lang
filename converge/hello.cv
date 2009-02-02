@@ -1,0 +1,12 @@
+import Sys
+
+class Hello:
+	func init():
+		self.greeting := "Hello, World!"
+	func hello():
+		Sys.println(self.greeting)
+
+func main():
+	foo := Hello.new()
+	foo.hello()
+	foo.hello()

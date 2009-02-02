@@ -1,0 +1,2 @@
+content	  simpleajax                             content/
+overlay   chrome://browser/content/browser.xul   chrome://simpleajax/content/overlay.xul

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="application/x-javascript"><![CDATA[
+  netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+  var WindowMediator = Components
+                       .classes['@mozilla.org/appshell/window-mediator;1']
+                       .getService(Components.interfaces.nsIWindowMediator);
+  var browser = WindowMediator.getMostRecentWindow('navigator:browser');
+  alert(browser.gBrowser.mTabs.length);
+]]></script>
+</page>

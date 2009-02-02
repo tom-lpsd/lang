@@ -1,0 +1,50 @@
+task :default => %w{helloxpcom.xpi}
+
+XPI='helloxpcom.xpi'
+JAR=XPI.ext('jar')
+PROJECT=XPI.ext
+
+WORK = 'build'
+CONTENTS = %w{content locale skin}
+COMPONENTS = %w{install.rdf chrome.manifest components defaults}
+
+depends = []
+CONTENTS.each do |f|
+  depends.concat Dir.glob("#{f}/*") if FileTest.directory?(f)
+end
+COMPONENTS.each do |f|
+  if FileTest.directory?(f)
+    depends.concat Dir.glob("#{f}/*")
+  elsif FileTest.exist?(f)
+    depends.push f 
+  end
+end
+
+file XPI => depends do
+  sh "mkdir #{WORK}"
+
+  CONTENTS.each do |dir|
+    sh "cp -r #{dir} #{WORK}/; rm -rf #{WORK}/#{dir}/.svn" if FileTest.directory?(dir)
+  end
+
+  chdir WORK
+  sh "zip -r #{JAR} *"
+  sh "mkdir chrome;mv #{JAR} chrome/"
+
+  COMPONENTS.each do |com|
+    pcom = "../" + com
+    if FileTest.directory?(pcom)
+      sh "cp -r #{pcom} .; rm -rf #{com}/.svn"
+    elsif FileTest.exist?(pcom)
+      sh "cp #{pcom} ."
+    end
+  end
+
+  sh %{ruby -pne '$_.sub!(/([\\w\\/_]+)\\s*$/,"jar:chrome/#{PROJECT}.jar!/\\\\1\\n") if /^(content|skin|locale)/' chrome.manifest > tmp}
+  sh "mv tmp chrome.manifest"
+  sh "zip -r ../#{XPI} *"
+  chdir '..'
+  sh "rm -rf #{WORK}"
+
+end
+

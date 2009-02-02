@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet href="chrome://global/skin"?>
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <menubar>
+    <menu label="メニュー1">
+      <menupopup>
+	<menuitem label="項目1" />
+	<menuitem label="項目2" />
+	<menuseparator />
+　	<menuitem label="項目3" />
+	<menu label ="サブメニュー">
+	  <menupopup>
+	    <menuitem label="項目4" />
+	    <menuitem label="項目5" />
+	  </menupopup>
+	</menu>
+	<menuseparator />
+　	<menuitem label="チェックする" type="checkbox" />
+	<menuseparator />
+	<menuitem label="選択1" name="select" type="radio" />
+	<menuitem label="選択2" name="select" type="radio" />
+	<menuitem label="選択3" name="select" type="radio" />
+      </menupopup>
+    </menu>
+  </menubar>
+
+  <menupopup id="cmenu">
+    <menuitem label="送信する" />
+  </menupopup>
+
+  <label value="MenuTest" context="cmenu"/>
+  <hbox>
+    <button label="button1" />
+    <button label="button2" />
+  </hbox>
+
+</window>

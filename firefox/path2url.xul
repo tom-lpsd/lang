@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="application/x-javascript"><![CDATA[
+  netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+  var file = Components
+             .classes['@mozilla.org/file/local;1']
+             .createInstance(Components.interfaces.nsILocalFile);
+  file.initWithPath('/Users/tom/tmp.txt');
+  var ioService = Components
+                  .classes['@mozilla.org/network/io-service;1']
+                  .getService(Components.interfaces.nsIIOService);
+  var url = ioService.newFileURI(file);
+  var fileURL = url.spec;
+  alert(fileURL);
+]]></script>
+</page>

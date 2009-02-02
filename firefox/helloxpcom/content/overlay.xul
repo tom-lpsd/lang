@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<overlay id="helloXPCOMOverlay"
+	 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="application/x-javascript" src="chrome://helloxpcom/content/overlay.js" />
+  <menupopup id="menu_ToolsPopup">
+    <menuitem id="helloXPCOMMenuitem"
+	      label="Hello, XPCOM!"
+	      insertbefore="sanitizeSeparator"
+	      oncommand="Hello.hello()" />
+  </menupopup>
+</overlay>

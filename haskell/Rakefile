@@ -1,0 +1,25 @@
+require 'rake/clean'
+
+RM='rm -rf'
+MV='mv'
+ghc='ghc'
+
+DARWINP = %x{uname}.match(/^Darwin$/)
+MACOSXAPP = '/usr/local/wxhaskell/bin/macosx-app'
+
+APPS = FileList['**/*.hs'].ext
+
+APPS.each do |app|
+  file app => [app + ".hs"] do |t|
+    ghc = "/opt/local/bin/ghc" if DARWINP && app.match(/gtk/)
+    sh "#{ghc} --make #{t.prerequisites} -o #{t.name}"
+    sh "#{RM} #{t.name}.hi #{t.name}.o"
+    if DARWINP && (app.match(/^wx/i) || app.match(/wx$/i))
+      sh "#{MACOSXAPP} #{t.name}"
+      sh "#{MV} #{t.name}.app/Contents/MacOS/#{t.name} ."
+      sh "#{RM} #{t.name}.app"
+    end
+  end
+end
+
+CLEAN.include('**/*.o', '**/*.hi')

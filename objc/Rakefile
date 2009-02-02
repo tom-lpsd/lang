@@ -1,0 +1,12 @@
+require 'rake/clean'
+
+OBJCC='gcc'
+OBJCFLAGS='-framework Foundation'
+
+rule /^[^\.]+$/ => ['.m'] do |t|
+  sh "#{OBJCC} -o #{t.name} #{OBJCFLAGS} #{t.source}"
+end
+
+file 'gcc_sample' => 'gcc_sample.m' do |t|
+  sh "gcc -o gcc_sample #{t.prerequisites} -lobjc"
+end

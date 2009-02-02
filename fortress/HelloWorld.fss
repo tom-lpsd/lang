@@ -1,0 +1,7 @@
+component HelloWorld
+export Runnable
+
+  run(args:String...):() = do
+      println("HelloWorld!" )
+  end
+end

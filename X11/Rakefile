@@ -1,0 +1,44 @@
+require 'rake/clean'
+require 'rake/loaders/makefile'
+
+GREP ='grep -q -E'
+
+CLEAN.include('**/*.o','.deps/*.mf')
+CLOBBER.include('**/*.a')
+
+BINDIR = '../bin'
+LIBDIR = %w{/usr/X11R6/lib}
+INCDIR =  %w{/sw/include /usr/local/include ./include /usr/X11R6/include}
+
+SRC = FileList['**/*.c']
+APPS = SRC.ext
+
+CC = 'gcc'
+CPPFLAGS = INCDIR.map{|dir| "-I#{dir} "} + LIBDIR.map{|dir| "-L#{dir} "}
+CFLAGS = '-O3 -Wall'
+
+rule /\.o$/ => ['.c'] do |t|
+  sh "#{CC} -c -o #{t.name} #{CPPFLAGS} #{CFLAGS} #{t.source}"
+end
+
+SRC.each do |src|
+  deps = ".deps/" + src.ext('.mf').gsub(/\//,'.')
+  file deps => [src] do
+    sh "#{CC} -MM #{CPPFLAGS} -MT #{src.ext('.o')} #{src} > #{deps}"
+  end
+  import deps
+end
+
+APPS.each do |fname|
+  file fname => ["#{fname}.o"] do |f|
+    begin
+      sh %{#{GREP} 'main' #{f.name}.c} do |ok,res| 
+        raise if !ok 
+      end
+      biname = File.basename(fname)
+      sh "#{CC} -o #{BINDIR}/#{biname} #{CPPFLAGS} #{fname}.o -lX11"
+    rescue
+      puts "it doesn't contains main function."
+    end
+  end
+end

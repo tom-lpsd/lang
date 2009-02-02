@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="application/x-javascript"><![CDATA[
+  netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+  var ioService = Components
+                  .classes['@mozilla.org/network/io-service;1']
+                  .getService(Components.interfaces.nsIIOService);
+  alert(ioService);
+]]></script>
+</page>

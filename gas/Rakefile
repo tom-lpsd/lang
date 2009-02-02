@@ -1,0 +1,19 @@
+require 'rake/clean'
+
+CC='gcc'
+
+if %x{uname -a} =~ /Darwin/
+  AS='i386-pc-elf-as'
+else
+  AS='as --alternate'
+end
+
+file 'bit.o' => ['check_bit.s', 'bit.s']
+
+rule /.o$/ => '.s' do |t|
+  sh "#{AS} -o #{t.name} -alm=#{t.source.gsub(/\.[^.]*$/,"")}.lst #{t.source}"
+end
+
+rule /^[^\.]+$/ => ['.o'] do |t|
+  sh "#{CC} -o #{t.name} #{t.source}"
+end

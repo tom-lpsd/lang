@@ -1,0 +1,5 @@
+lib libgeorgeringo
+    : george.cpp ringo.cpp georgeringo.cpp
+    : <link>shared <define>GEORGERINGO_DLL
+    : <include>..
+    ;

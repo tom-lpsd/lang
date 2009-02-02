@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet href="chrome://global/skin"?>
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <label value="Horizontal" />
+  <hbox>
+    <button label="horizontal1" />
+    <button label="horizontal2" />
+  </hbox>
+  <label value="Vertical" />
+  <vbox>
+    <button label="vertical1" />
+    <button label="vertical2" />
+  </vbox>
+  <label value="Mixed" />
+  <hbox>
+    <button label="mixed1" />
+    <vbox>
+      <button label="mixed2" />
+      <button label="mixed3" />
+    </vbox>
+    <button label="mixed4" />
+  </hbox>
+</window>
+

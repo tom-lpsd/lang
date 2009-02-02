@@ -1,0 +1,2 @@
+content	  helloxpcom                             content/
+overlay   chrome://browser/content/browser.xul   chrome://helloxpcom/content/overlay.xul

@@ -1,0 +1,14 @@
+exe hellobeatles
+    : ../johnpaul//libjohnpaul
+      ../georgeringo//libgeorgeringo
+      hellobeatles.cpp
+    : <include>..
+    ;
+
+install dist
+    : hellobeatles
+    : <install-dependencies>on
+      <install-type>EXE
+      <install-type>SHARED_LIB
+      <location>.
+    ;

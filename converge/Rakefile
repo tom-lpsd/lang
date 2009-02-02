@@ -1,0 +1,23 @@
+require 'rake/clean'
+
+CLEAN.include('**/*.cvb')
+
+SRC = FileList['**/*.cv']
+APPS = SRC.ext
+
+rule /\.cvb$/ => ['.cv'] do |t|
+  sh "convergec -o #{t.name} #{t.source}"
+end
+
+APPS.each do |exe|
+  file exe => ["#{exe}.cvb"] do |f|
+    biname = File.basename(exe)
+    sh "convergel -s -o #{biname} #{exe}.cvb"
+    sh "chmod 755 #{biname}"
+  end
+end
+
+file 'hello' => ['hello.cvb', 'world.cvb'] do
+  sh 'convergel -s -o hello hello.cvb world.cvb'
+  sh 'chmod 755 hello'
+end

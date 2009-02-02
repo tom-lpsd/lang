@@ -1,0 +1,4 @@
+#ifndef GEORGE_HPP_INCLUDED
+#define GEORGE_HPP_INCLUDED
+void george();
+#endif // GEORGE_HPP_INCLUDED

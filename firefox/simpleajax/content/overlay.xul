@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<overlay id="simpleajaxOverlay"
+	 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="application/x-javascript" src="chrome://simpleajax/content/overlay.js" />
+  <menupopup id="menu_ToolsPopup">
+    <menuitem id="simpleajax"
+	      label="Send Message to Echoes"
+	      insertbefore="sanitizeSeparator"
+	      oncommand="SimpleAjax.openDialog();" />
+  </menupopup>
+</overlay>

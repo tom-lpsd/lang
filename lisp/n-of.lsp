@@ -1,0 +1,8 @@
+(defmacro n-of (n exp)
+  (let ((g (gensym))
+	(i (gensym)))
+    `(let ((,g nil))
+       (do ((,i 0 (+ 1 ,i)))
+	 ((<= ,n ,i))
+	 (push ,exp ,g))
+       (reverse ,g))))

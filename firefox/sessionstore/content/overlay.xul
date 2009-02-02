@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<overlay id="sessionstoreOverlay"
+	 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="application/x-javascript"
+	  src="chrome://sessionstore/content/overlay.js" />
+  <menupopup id="menu_ToolsPopup">
+    <menu label="Session Store"
+	  insertbefore="sanitizeSeparator">
+      <menupopup onpopupshowing="gSessionStore.createMenu(event);"
+		 oncommand="gSessionStore.restore(event);">
+	<menuitem label="Save Session" oncommand="gSessionStore.save(event);"/>
+	<menuseparator />
+	<!-- ここへmenuitemを動的に生成して配置する -->
+	<menuseparator />
+	<menuitem label="Clear Sessions" oncommand="gSessionStore.clear(event);" />
+      </menupopup>
+    </menu>
+  </menupopup>
+</overlay>

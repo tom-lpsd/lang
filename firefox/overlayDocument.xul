@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <hbox id="box1" align="center" style="border:1px solid;margin:1em;">
+    <button label="ボタン1" />
+    <button label="ボタン2" insertbefore="label1"/>
+  </hbox>
+  <button label="ボタン3" />
+</overlay>

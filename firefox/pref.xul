@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="application/x-javascript"><![CDATA[
+  netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+  var pref = Components
+             .classes['@mozilla.org/preferences-service;1']
+             .getService(Components.interfaces.nsIPrefBranch);
+  var dir = pref.getCharPref('browser.download.lastDir');
+  alert(decodeURIComponent(escape(dir)));
+
+  var string = 'This is test.';
+  pref.setCharPref('extensions.myextension.testPref',
+                   unescape(encodeURIComponent(string)));
+]]></script>
+</page>

@@ -1,0 +1,25 @@
+*     OKISA NO JUN NI NARABEKAERU
+      INTEGER DATA(1:1000),KOSU,WORK
+      
+      OPEN(10,FILE='RETSU.TXT', STATUS='OLD')
+      READ(10,100) KOSU
+ 100  FORMAT(I4)
+      READ(10,110) (DATA(I),I=1,KOSU)
+ 110  FORMAT(5I10)
+      CLOSE(10)
+
+      DO 20 I=1,KOSU-1
+         DO 10 J=I+1,KOSU
+            IF(DATA(I).LT.DATA(J)) THEN
+               WORK=DATA(I)
+               DATA(I)=DATA(J)
+               DATA(J)=WORK
+            END IF
+ 10      CONTINUE
+ 20   CONTINUE
+
+      OPEN(20,FILE='JUNJO.TXT',STATUS='NEW')
+      WRITE(20,200) (DATA(I),I=1,KOSU)
+ 200  FORMAT(' ',5I10)
+      CLOSE(20)
+      END

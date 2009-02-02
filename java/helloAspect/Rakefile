@@ -1,0 +1,6 @@
+task :default => 'hello/HelloWorld.class'
+
+file 'hello/HelloWorld.class' => ['hello/HelloWorld.java', 'hello/Trace.aj'] do
+  sh "ajc hello/HelloWorld.java hello/Trace.aj"
+end
+

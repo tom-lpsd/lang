@@ -1,0 +1,13 @@
+(defun quarter-turn (ary)
+  (let* ((dims (array-dimensions ary))
+	 (dim1 (- (car dims) 1))
+	 (dim2 (- (cadr dims) 1)))
+    (if (not (eql dim1 dim2))
+	nil
+      (let ((acc (make-array (list (+ dim1 1) (+ dim2 1)))))
+	(do ((i 0 (+ i 1)))
+	    ((> i dim1))
+	  (do ((j 0 (+ j 1)))
+	      ((> j dim2))
+	    (setf (aref acc j (- dim2 i)) (aref ary i j))))
+	acc))))

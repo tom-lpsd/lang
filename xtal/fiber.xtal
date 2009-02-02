@@ -1,0 +1,49 @@
+#!/usr/bin/env xtal
+FiberScheduler: class{
+
+    _fibers: [];
+   
+    step: method(){
+	for(i: 0; i<_fibers.length; ++i){
+	    it: _fibers[i];
+	    it();
+	    if(!it.is_alive()){
+		_fibers.erase(i);
+		i--;
+	    }
+	}
+    }
+    
+    run: method(){
+	while(!_fibers.empty())
+	    step();
+    }
+
+    register: method(f){
+	_fibers.push_back(f);
+    }
+
+}
+
+fs: FiberScheduler();
+
+fs.register(fiber{
+    i: 0;
+    while(i<10){
+        i.p;
+        i++;
+        yield;
+    }
+});
+
+fs.register(fiber{
+    i: 0;
+    while(i<10){
+        i+5 .p;
+        i++;
+        yield;
+    }
+});
+
+fs.run;
+

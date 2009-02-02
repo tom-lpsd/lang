@@ -1,0 +1,4 @@
+Testing schedule ==============================================================
+<kahua-server schedule.kahua>--------------------------------------------------
+test run schedule.kahua, expects #t ==> ok
+passed.

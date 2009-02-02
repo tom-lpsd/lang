@@ -1,0 +1,8 @@
+================================================================================
+
+Please edit app-servers in the Kahua working directory to add
+ "schedule" entry.
+
+  (schedule :arguments () :run-by-default 1)
+
+================================================================================

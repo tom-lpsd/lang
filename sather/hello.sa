@@ -1,0 +1,7 @@
+class HELLO_WORLD is
+    main is
+        a:INT := 10;
+        #OUT+"Hello World\n"+a+"\n";
+    end;
+end;
+

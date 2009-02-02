@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="application/x-javascript"><![CDATA[
+  netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+  var file = Components
+             .classes['@mozilla.org/file/local;1']
+             .createInstance(Components.interfaces.nsILocalFile);
+  file.initWithPath('/Users/tom/src/firefox/foo.dat');
+  var fileStream = Components
+                   .classes['@mozilla.org/network/file-input-stream;1']
+                   .createInstance(Components.interfaces.nsIFileInputStream);
+  fileStream.init(file, 1, 0, false);
+  
+  var binaryStream = Components
+                     .classes['@mozilla.org/binaryinputstream;1']
+                     .createInstance(Components.interfaces.nsIBinaryInputStream);
+  binaryStream.setInputStream(fileStream);
+  var array = binaryStream.readByteArray(fileStream.available());
+
+  binaryStream.close();
+  fileStream.close();
+  alert(array.map(function(aItem) { return aItem.toString(16); })
+             .join(' ').toUpperCase());
+]]></script>
+</page>

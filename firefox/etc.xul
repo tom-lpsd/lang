@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet href="chrome://global/skin"?>
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <menubar>
+    <menu label="メニュー">
+      <menupopup>
+	<menuitem label="保存" key="key-save"/>
+      </menupopup>
+    </menu>
+  </menubar>
+  <label flex="1" width="200">
+    この操作を実行すると，あなたが入力した個人情報が
+    サーバに送信されます．本当に実行してもよいですか？
+  </label>
+  <checkbox label="チェックしてください" />
+  <radiogroup orient="vertical">
+    <hbox>
+      <radio label="左上" />
+      <radio label="右上" />
+    </hbox>
+    <hbox>
+      <radio label="左下" />
+      <radio label="右下" />
+    </hbox>
+  </radiogroup>
+  <vbox align="start">
+    <textbox />
+    <textbox multiline="true"
+	     rows="5" cols="15" />
+  </vbox>
+  <menulist>
+    <menupopup>
+      <menuitem label="項目1" value="1" />
+      <menuitem label="項目2" value="2" selected="true"/>
+      <menuitem label="項目3" value="3" />
+    </menupopup>
+  </menulist>
+  <key id="key-save" key="s"
+       modifiers="accel,shift" />
+  <grid>
+    <columns>
+      <column />
+      <column flex="1" />
+    </columns>
+    <rows>
+      <row align="center">
+	<label value="ユーザID" />
+	<textbox />
+      </row>
+      <row align="center">
+	<label value="名前" />
+	<textbox />
+      </row>
+    </rows>
+  </grid>
+  <stack>
+    <progressmeter mode="normal" value="50" />
+    <hbox align="center">
+      <label value="処理中です…" />
+    </hbox>
+  </stack>
+  <tabbox>
+    <tabs>
+      <tab label="tab1" />
+      <tab label="tab2" />
+    </tabs>
+    <tabpanels>
+      <tabpanel>
+	<checkbox label="check1" />
+      </tabpanel>
+      <tabpanel>
+	<checkbox label="check2" />
+	<checkbox label="check3" />
+      </tabpanel>
+    </tabpanels>
+  </tabbox>
+</window>

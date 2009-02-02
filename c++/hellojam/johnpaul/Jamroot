@@ -1,0 +1,6 @@
+lib libjohnpaul
+    : john.cpp paul.cpp johnpaul.cpp
+    : <link>static
+    : <include>..
+    ;
+

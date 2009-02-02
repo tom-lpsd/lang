@@ -1,0 +1,20 @@
+require 'rake/clean'
+
+def mkgl_rule cc
+  sysname=%x|uname|.chomp;
+  proc do |t|
+    if sysname =~ /Darwin/
+      sh "sed -e '/^#include <GL/s/GL/OpenGL/' \
+              -e '/^#include <OpenGL\\/glut\\.h>/s/OpenGL/GLUT/' \
+              #{t.prerequisites} > __#{t.prerequisites}"
+      sh "#{cc} -Wall -o #{t.name} -framework OpenGL \
+          -framework GLUT __#{t.prerequisites}"
+      sh "rm -f __#{t.prerequisites}"
+    else
+      sh "#{cc} -Wall -o #{t.name} #{t.prerequisites} -lglut"
+    end
+  end
+end
+
+rule( /^[^.]+$/ => ['.cpp'], &mkgl_rule('g++'))
+rule( /^[^.]+$/ => ['.c'], &mkgl_rule('gcc'))

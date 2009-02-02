@@ -1,0 +1,19 @@
+require 'rake/clean'
+
+TESTS = %w|uncurry repeated_fib sum_list fib|
+APPS = TESTS + %w|httptest|
+
+CLEAN.include('**/*.o','**/*.cmi', '**/*.cmx')
+CLOBBER.include(APPS)
+
+task :default => APPS
+
+file "httptest" => 'httptest.ml' do |t|
+  sh "ocamlfind ocamlopt -o #{t.name} -package netclient -linkpkg #{t.prerequisites}"
+end
+
+TESTS.each do |test|
+  file test => "#{test}.ml" do
+    sh "ocamlfind ocamlopt -o #{test} -package oUnit -linkpkg #{test}.ml"
+  end
+end

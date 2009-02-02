@@ -1,0 +1,11 @@
+(defun hash2alist (hash)
+  (setf acc nil)
+  (maphash #'(lambda (k v)
+	       (push (cons k v) acc)) hash)
+  acc)
+
+(defun alist2hash (alist)
+  (setf hash (make-hash-table))
+  (mapcar #'(lambda (pair)
+	      (setf (gethash (car pair) hash) (cdr pair))) alist)
+  hash)

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/"?>
+<!DOCTYPE dialog SYSTEM "chrome://helloworld/locale/clock.dtd">
+<dialog id="clockDialog"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	title="&helloworld.clock;"
+	buttons="accept"
+	onload="initClock();">
+  <script type="application/x-javascript"
+	  src="chrome://helloworld/content/clock.js" />
+  <hbox align="center">
+    <label value="&helloworld.currentTime;:" />
+    <textbox id="currentTime" />
+  </hbox>
+</dialog>

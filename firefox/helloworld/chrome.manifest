@@ -1,0 +1,7 @@
+content	  helloworld                             content/
+overlay   chrome://browser/content/browser.xul   chrome://helloworld/content/overlay.xul
+locale    helloworld                             en-US        locale/en-US/
+locale	  helloworld				 ja-JP	      locale/ja-JP/
+skin	  helloworld				 classic/1.0  skin/classic/
+style	  chrome://browser/content/browser.xul	 chrome://helloworld/skin/overlay.css
+style	  chrome://global/content/customizeToolbar.xul	chrome://helloworld/skin/overlay.css
