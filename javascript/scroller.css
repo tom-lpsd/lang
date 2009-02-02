@@ -1,0 +1,16 @@
+.visualizer {
+    width: 400px;
+    margin-left: 400px;
+}
+
+.visualizer li {
+    list-style: none;
+    width: 96px;
+    height: 96px;
+    border-width: 1px;
+    border-style: solid;
+    background-color: red;
+    margin: 1px;
+    float: left;
+    position: relative;
+}

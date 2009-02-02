@@ -1,0 +1,31 @@
+<html>
+<head>
+  <script type='text/javascript'>
+    window.onload = function () {
+        var t = document.getElementById("some");
+        var c = document.getElementById("console");
+        t.style.overflow = 'hidden';
+        t.style.opacity = 1;
+        var id = window.setInterval(function(){
+            var o = t.style.opacity;
+            if (o == 0) { 
+                window.clearInterval(id);
+                return;
+            }
+            t.style.opacity = o - 0.05;
+            c.innerHTML += "OK ";
+        }, 150);
+    }
+  </script>
+  <style type='text/css'>
+    #console {
+      color: yellow;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <p id="some">Sample</p>
+  <div id="console"></div>
+</body>
+</html>

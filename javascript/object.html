@@ -1,0 +1,35 @@
+<html>
+<head><title>Factorials</title></head>
+<body>
+<script type="text/javascript">
+var a = new Object();
+a.x = 100;
+a.y = 200;
+a.print = function () { alert(this.x*this.x+this.y*this.y); };
+a.print();
+
+var point = { x: 2.3, y: -1.2 };
+var rectangle = { 
+      upperLeft : { x: 2, y: 2},
+      lowerRight : { x: 4, y: 4}
+};
+var square = {
+      upperLeft: { x: point.x, y:point.y},
+      lowerRight: { x: (point.x+100), y: (point.y-100) }
+};
+
+document.write(square.upperLeft.x + "<br/>");
+document.write(square.upperLeft.y + "<br/>");
+
+point.x = 100;
+point.y = 200;
+
+document.write(square.upperLeft.x + "<br/>");
+document.write(square.upperLeft.y + "<br/>");
+
+for (var i in navigator) {
+    document.write(i + " " + navigator[i] + "<br />");
+}
+</script>
+</body>
+</html>

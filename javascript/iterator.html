@@ -1,0 +1,17 @@
+<html>
+<head><title>Factorials</title></head>
+<body>
+<script type="text/javascript">
+var it = Iterator({ a: "foo", b: 42, c: true});
+alert(it.next());
+alert(it.next());
+alert(it.next());
+try {
+  it.next();
+}
+catch (e) {
+  alert(e instanceof StopIteration);
+}
+</script>
+</body>
+</html>

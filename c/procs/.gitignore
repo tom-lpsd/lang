@@ -1,0 +1,13 @@
+config.h
+Makefile.in
+Makefile
+aclocal.m4
+autom4te.cache
+depcomp
+install-sh
+missing
+procs
+procs*.tar.gz
+*.o
+stamp-h1
+*.deps

@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+  <title>My First Scriptaculous</title>
+  <script src="scriptaculous/prototype.js" type="text/javascript"></script>
+  <script src="scriptaculous/effects.js" type="text/javascript"></script>
+  <script type="text/javascript" language="javascript">
+    // <![CDATA[
+    console.log("hello");
+    window.onload = function () {
+        $('greeting').blindUp();
+        $('greeting').blindDown();
+    };
+    // ]]>
+  </script>
+</head>
+<body>
+<h1 id="greeting">Hello, World!</h1>
+</body>
+</html>

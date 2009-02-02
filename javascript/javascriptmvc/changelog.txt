@@ -1,0 +1,18 @@
+Changes made from 0.9.6 to 1.0.0 were various bug fixes.  No major functionality has been added.
+Code is tested, hardened, and workd across all 4 major browsers (IE, FF, Opera, Safari)
+
+Version 1.0 Changes relative to version 0.9.6
+- Test works in safari & opera.  There was an issue with testing ajax because the calling window sets the base for XMLHttpRequests.
+- JavaScriptMVC tests work for all 4 major browsers (IE, FF, Opera, Safari) on windows and are commented.
+- bug fixes for history plugin (contributed by Trey Kennedy)
+- bug fix for jquery ajax wrapper
+- Main Controller testing bug fix
+- option to include a file and mark it to not be compressed
+- bug fixes to View plugin (contributed by Joe Tortuga and Max C.H. Hwang)
+- fixed controller bug with form_params
+- Class plugin works correctly in no_conflict mode
+- bug fix for submit_link_to (contributed by Trey Kennedy)
+- form_params works correctly with checkboxes and radioboxes (contributed by Trey Kennedy)
+- Element and Model plugins compress correctly
+- removed eval from Controller plugin
+- added code credit (Jester, Prototype, TrimPath, Dave Flanagan) where it was due

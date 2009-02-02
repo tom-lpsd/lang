@@ -1,0 +1,42 @@
+require 'rake/clean'
+
+asm='nasm'
+img='helloos.img'
+ 
+CLEAN.include(img)
+CLOBBER.include # nothing
+
+task :default => img
+
+task :run => img do
+  sh "qemu #{img}"
+end
+
+file 'helloos.img' => 'helloos.asm' do |t|
+  sh "#{asm} -o #{t.name} #{t.prerequisites}"
+end
+
+file 'haribote.img' => %w/ipl.bin haribote.bin/ do |t|
+  sh "z_tools/edimg.exe imgin:z_tools/fdimg0at.tek wbinimg src:ipl.bin len:512 from:0 to:0 copy from:haribote.bin to:@: imgout:#{t.name}"
+end
+
+
+file 'hello.iso' => img do |t|
+  sh "mkdir tmp.$$;cp #{img} tmp.$$;\
+      mkisofs -iso-level 1 -b #{img} -o #{t.name} tmp.$$;\
+      rm -rf tmp.$$"
+end
+
+file 'ipl.iso' => 'ipl.img' do |t|
+  sh "mkdir tmp.$$;cp #{t.prerequisites} tmp.$$;\
+      mkisofs -iso-level 1 -b #{t.prerequisites} -o #{t.name} tmp.$$;\
+      rm -rf tmp.$$"
+end
+
+rule /\.bin/ => ['.nas'] do |t|
+  sh "z_tools/nask.exe #{t.source} #{t.name} #{t.name.ext('.lst')}"
+end
+
+rule /\.img$/ => ['.bin'] do |t|
+  sh "z_tools/edimg.exe imgin:z_tools/fdimg0at.tek wbinimg src:#{t.source} len:512 from:0 to:0 imgout:#{t.name}"
+end

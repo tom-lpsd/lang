@@ -1,0 +1,25 @@
+<html>
+<head><title>Prototypes</title></head>
+<body>
+<script type="text/javascript">
+function A (x) {
+    this.a = x;
+}
+function B (x) {
+    this.b = x;
+}
+Object.prototype.hoge = 123;
+A.prototype.aa = 10;
+B.prototype = new A(10);
+B.prototype.constructor = B;
+var c = new B(20);
+var d = new A(2);
+c.ang = 12;
+d.constructor.prototype.aa = 99;
+alert(c.constructor);
+for (var i in c) {
+    alert(i + " " + c[i]);
+}
+</script>
+</body>
+</html>

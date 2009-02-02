@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Play with prototype.js</title>
+<script type="text/javascript" src="prototype.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+var a = [1,'hoge',3,'foo','bar'];
+a.each(function(x) { document.write(x + "<br/>"); });
+function hoge(x) {
+    alert(this.a);
+}
+hoge.apply({a:100},[0]);
+</script>
+</body>
+</html>

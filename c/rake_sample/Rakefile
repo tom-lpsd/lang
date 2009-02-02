@@ -1,0 +1,27 @@
+require 'rake/clean'
+require 'rake/loaders/makefile'
+
+CC = 'gcc'
+
+CLEAN.include('*.o', '.depends.mf')
+CLOBBER.include('hello')
+
+task :default => ["hello"]
+
+SRC = FileList['*.c']
+OBJ = SRC.ext('o')
+
+rule '.o' => '.c' do |t|
+  sh "#{CC} -c -o #{t.name} #{t.source}"
+end
+
+file "hello" => OBJ do
+  sh "#{CC} -o hello #{OBJ}"
+end
+
+CPPFLAGS = ""
+file ".depends.mf" => SRC do |t|
+  sh "#{CC} -MM #{CPPFLAGS} #{t.prerequisites} > #{t.name}" 
+end
+
+import ".depends.mf"

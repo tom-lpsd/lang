@@ -1,0 +1,19 @@
+<html>
+<head>
+<script type='text/javascript' src="basic.js"></script>
+<script type='text/javascript'>
+function callback() {
+    var console = document.getElementById('console');
+    var div = document.createElement('div');
+    div.innerHTML += this.req.responseText;
+    console.appendChild(div);
+}
+window.onload = function () {
+    var loader = new net.ContentLoader('data.txt', callback);
+}
+</script>
+</head>
+<body>
+    <div id='console'></div>
+</body>
+</html>

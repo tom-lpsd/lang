@@ -1,0 +1,18 @@
+<html>
+<body>
+<head><title>Factorials</title></head>
+<script type="text/javascript">
+function square1(x) {
+  return x*x;
+}
+
+var square2 = function (x) { return x*x};
+
+var square3 = new Function("x", "return x*x");
+
+document.write(square1(2)+"<br/>");
+document.write(square2(3)+"<br/>");
+document.write(square3(4)+"<br/>");
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<html>
+	<head>
+		<title>Get Started With JavaScriptMVC</title>
+		<style>
+			
+			body {font-family: verdana; width: 800px;}
+			h1 {font-size: 16pt; background-color: #D5E7B3}
+			h2 {font-size: 14pt;}
+			h3 {font-size: 12pt}
+			p {margin-left: 20px;}
+			td{border: solid 1px Gray; font-size: 10pt;}
+			table { margin-left: 20px;}
+				pre {border: solid 1px #D5E7B3; margin-left: 20px;}
+			.todo { border: solid 1px RED;margin-left: 20px;}
+		</style>
+	</head>
+	
+	<body>
+		<h1>Welcome to JavaScriptMVC!</h1>
+		<p>This is an example page to help get you started.  It loads a tiny application at the bottom of this page.
+		The following are a few helpful hints.</p>
+		
+		<h2>Folders</h2>
+		<p> JavaScriptMVC applications are organized into folders that contain specific files:</p>
+		<table cellspacing='0px'>
+			<tr><th>folder</th><th>purpose</th></tr>
+			<tr>
+				<td>apps</td>
+				<td>Contains your application files.  Application files are used for including
+					JavaScriptMVC plugins and your files.  If you need something in your project,
+					include it here.
+				</td>
+			</tr>
+			<tr>
+				<td>controllers</td>
+				<td>Contain your Controllers that respond to events, such as a mouseclick.
+				</td>
+			</tr>
+			<tr>
+				<td>models</td>
+				<td>The models contain your project's classes.
+				</td>
+			</tr>
+			<tr>
+				<td>resources</td>
+				<td>non-JavaScriptMVC resources, like prototype or jQuery.
+				</td>
+			</tr>
+			<tr>
+				<td>test</td>
+				<td>For testing files.
+				</td>
+			</tr>
+			<tr>
+				<td>views</td>
+				<td>EJS views.
+				</td>
+			</tr>
+		</table>
+		
+		<h2>Include</h2>
+		<p>In JavaScriptMVC, everything is a plugin.  To add functionality, simply use the include function
+		   in your application file, located in the apps folder, to include the plugin.  For example:
+		</p>
+<pre><code>include.plugins('controller','ajax')</code></pre>
+		<p>includes the controller and ajax functionality.</p>
+		
+		
+		<h2>Example Application</h2>
+		<p>If you inspect this page's html, you will find a line like:</p>
+<pre><code>&lt;script src='jmvc/include.js?app,development' type='text/javascript'>&lt;/script></code></pre>
+		<p>This loads the app.js file in apps.  The apps file includes the controller plugin and a todos controller.</p>
+		<p>The todos controller adds mouseover/mouseout functionality to any element with class 'todo'.</p>
+		<p>Mouseover the following todo to see it in action!</p>
+		<div class='todo'>TODO: Learn JavaScriptMVC</div>
+		<h3>Testing</h3>
+		<p>To test this application, change JavaScriptMVC into test mode by changing development to test.  From:</p>
+<pre><code>&lt;script src='jmvc/include.js?app,development' type='text/javascript'>&lt;/script>
+<B>to</B>
+&lt;script src='jmvc/include.js?app,test' type='text/javascript'>&lt;/script></code></pre>	
+		<p>After you have done this, 'todos_controller_test.js' will be loaded in 'test\functional'.
+			Refresh this page, click the functional tab, and click the play button to run the tests.
+		</p>
+		
+		<h3>Compression</h3>
+		<p>To compress your application, replace test with compress, and refresh this page.
+			Copy the compressed application to 'apps/app_production.js'.
+		</p>
+		
+		<h3>Production</h3>
+		<p>To run in production, change compress to production.</p>
+		<script src='jmvc/include.js?app,development' type='text/javascript'></script>
+	</body>
+</html>
