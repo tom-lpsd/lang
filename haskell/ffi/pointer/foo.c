@@ -13,6 +13,9 @@ Foo *init(int x, int y)
 
 void destroy(Foo *f)
 {
-    printf("free %p: %d, %d\n", f, f->x, f->y);
+    FILE *fp;
+    fp = fopen("foo.txt", "w");
+    fprintf(fp, "free %p: %d, %d\n", f, f->x, f->y);
+    fclose(fp);
     free(f);
 }

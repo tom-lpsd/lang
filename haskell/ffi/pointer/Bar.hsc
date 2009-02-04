@@ -1,6 +1,6 @@
-{-# LANGUAGE CPP, ForeignFunctionInterface #-}
-{-# INCLUDE foo.h #-}
-module Foo where
+{-# LANGUAGE ForeignFunctionInterface #-}
+{-# INCLUDE "foo.h" #-}
+module Bar where
 
 import Foreign
 import Foreign.Ptr
@@ -17,9 +17,9 @@ foreign import ccall "wrapper"
 foreign import ccall unsafe "destroy"
     c_destroy :: Ptr CFoo -> IO ()
 
-data Foo = Foo !(ForeignPtr CFoo)
+data Foo = Foo !(ForeignPtr CFoo) deriving Show
 
-main = putStrLn "OK"
+main = fooInit 10 20
 
 fooInit :: Int -> Int -> IO Foo
 fooInit x y = do f <- c_init (fromIntegral x) (fromIntegral y)
