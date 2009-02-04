@@ -1,0 +1,5 @@
+*stub*
+*.o
+*.hi
+Bar
+Bar.hs
