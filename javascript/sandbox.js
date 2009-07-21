@@ -1,11 +1,16 @@
-document.observe("dom:loaded", function () {
-	$$(".foo").each(function(element) {
-		element.observe("click", function(){alert("OK");    $("a").hide();});
-	    });
-	$('b').observe('click', function () {
-		alert("Fooo");
-	    });
-	$('c').observe('click', function () {
-		alert('Barrrr');
-	    }, false);
-    });
+(function(){
+        var flag = true;
+        Event.observe(window,'load',function(){
+            if(flag){
+                document.fire('dom:loaded');
+                document.stopObserving('dom:loaded');
+            }
+        });
+        document.observe('dom:loaded',function(evt){
+            flag = false;
+        });
+})();
+
+document.observe('dom:loaded', function () {
+    alert("OK");
+});
