@@ -1,0 +1,6 @@
+Revision history for Perl extension MyTest2.
+
+0.01  Sat Sep  5 16:20:07 2009
+	- original version; created by h2xs 1.23 with options
+		-O -n MyTest2 ./MyTest2/mylib/mylib.h
+
