@@ -18,7 +18,7 @@ static VALUE t_add(VALUE self, VALUE anObject)
 
 static VALUE t_say(VALUE self)
 {
-  printf("Hello World2!\n");
+  printf("Hello World3!\n");
   return self;
 }
 

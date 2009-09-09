@@ -1,3 +1,18 @@
+require 'rubygems'
+require 'rake/gempackagetask'
 require 'rake/extensiontask'
 
-Rake::ExtensionTask.new('hello')
+spec = Gem::Specification.new do |s|
+  s.name = "hello"
+  s.platform = Gem::Platform::RUBY
+  s.files = FileList["ext/hello.c"]
+  s.extensions = FileList["ext/extconf.rb"]
+  s.summary = 'hello'
+  s.version = '0.0.1'
+end
+
+Rake::GemPackageTask.new(spec) do |pkg|
+end
+
+Rake::ExtensionTask.new('hello', spec)
+
