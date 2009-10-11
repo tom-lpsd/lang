@@ -1,0 +1,123 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int mystrlen(char *str)
+{
+    int counter = 0;
+    char *ptr = str;
+    while (*ptr++ != '\0') {
+        counter++;
+    }
+    return counter;
+}
+
+int main(void)
+{
+    char str[] = "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge"
+        "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge" "hogehoge";
+
+    int i = 0;
+    for (i=0;i<100000;i++) {
+        printf("%d\n", mystrlen(str));
+    }
+    return EXIT_SUCCESS;
+}
