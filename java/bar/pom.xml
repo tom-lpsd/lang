@@ -3,16 +3,24 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.dyndns.tom_lpsd</groupId>
-  <artifactId>foo</artifactId>
+  <artifactId>bar</artifactId>
   <version>0.0.1</version>
   <packaging>jar</packaging>
 
-  <name>foo</name>
+  <name>bar</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
+  <repositories>
+    <repository>
+      <id>tom-lpsd</id>
+      <name>tom-lpsd repository</name>
+      <url>http://tom-lpsd.dyndns.org/mvn/repository</url>
+    </repository>
+  </repositories>
 
   <dependencies>
     <dependency>
@@ -21,24 +29,11 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.dyndns.tom_lpsd</groupId>
+      <artifactId>foo</artifactId>
+      <version>0.0.1</version>
+    </dependency>
   </dependencies>
-
-  <distributionManagement>
-    <repository>
-      <id>tom-lpsd</id>
-      <name>tom-lpsd repository</name>
-      <url>scpexe://tom-lpsd.dyndns.org/home/tom/mvn/repository</url>
-    </repository>
-  </distributionManagement>
-
-  <build>
-    <extensions>
-      <extension>
-	<groupId>org.apache.maven.wagon</groupId>
-	<artifactId>wagon-ssh-external</artifactId>
-	<version>1.0-beta-6</version>
-      </extension>
-    </extensions>
-  </build>
 
 </project>
